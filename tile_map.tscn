@@ -1,0 +1,40 @@
+[gd_scene load_steps=5 format=3 uid="uid://dwhy28p44d05t"]
+
+[ext_resource type="Script" path="res://character.gd" id="1_hoxov"]
+[ext_resource type="Texture2D" uid="uid://clu5grebrrgf2" path="res://ship.png" id="2_lih6o"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dox6u"]
+size = Vector2(36, 103)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l42uk"]
+size = Vector2(36, 103)
+
+[node name="world" type="Node2D"]
+rotation = 3.14159
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+position = Vector2(-579, -322)
+rotation = 1.5708
+script = ExtResource("1_hoxov")
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
+rotation = 1.5708
+texture = ExtResource("2_lih6o")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+position = Vector2(0, 1.5)
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_dox6u")
+
+[node name="Area2D" type="Area2D" parent="CharacterBody2D"]
+rotation = 1.5708
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/Area2D"]
+position = Vector2(0, 1.5)
+shape = SubResource("RectangleShape2D_l42uk")
+
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
+position = Vector2(1, -3.70741e-06)
+rotation = 1.5708
+enabled = false
+position_smoothing_enabled = true
